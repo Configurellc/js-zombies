@@ -29,9 +29,10 @@ class Item {
  * @param {number} damage   The weapon's damage.
  * @property {number} damage
  */
- class Weapon {
-  constructor(name, number){
-
+ class Weapon extends Item {
+  constructor(name, damage){
+    super(name)
+    this.damage = damage;
 
   }
  }
@@ -41,6 +42,7 @@ class Item {
  * Weapon Extends Item Class
  * -----------------------------
  */
+
 
 
 
@@ -65,7 +67,12 @@ class Item {
  * Food Extends Item Class
  * -----------------------------
  */
-
+ class Food extends Item {
+  constructor(name, energy){
+    super(name);
+    this.energy = energy;
+  }
+ }
 
 
 /**
@@ -90,6 +97,29 @@ class Item {
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
 
+ class Player {
+    constructor(name, health, strength, speed){
+    this._pack = [];
+    this._maxHealth = health;
+    this.name = name;
+    this.health = health;
+    this.strength = strength;
+    this.speed = speed;
+    this.isAlive = true;
+    this.equipped = false;
+
+   }
+
+   getPack() {
+    return this._pack;
+
+   }
+
+   getMaxHealth(){
+    return this._maxHealth;
+   }
+
+ }
 
 /**
  * Player Class Method => checkPack()
@@ -102,6 +132,8 @@ class Item {
  *
  * @name checkPack
  */
+
+
 
 
 /**
@@ -218,6 +250,7 @@ class Item {
  * @name equippedWith
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
+
 
 
 /**
